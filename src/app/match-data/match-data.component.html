@@ -1,1 +1,40 @@
-<p>match</p>
+<html>
+<head>
+  <title>Premier League Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content = "width = device - width, initial-scale = 1">
+</head>
+<body>
+<div class="navtop">
+  <button routerLink="/football">Back to Premier League Table</button>
+</div>
+<div class="container">
+  <table id="MatchData">
+    <thead>
+    <tr>
+      <th scope="col">Match Played Date</th>
+      <th scope="col">Team 1 name</th>
+      <th scope="col">Team 2 name</th>
+      <th scope="col">Team 1 goals</th>
+      <th scope="col">Team 2 goals</th>
+      <th scope="col">Match Winner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let mth of mthData ">
+      <td>{{mth.matchDate}}</td>
+      <td>{{mth.tm1Name}}</td>
+      <td>{{mth.tm2name}}</td>
+      <td>{{mth.tm1goals}}</td>
+      <td>{{mth.tm2goals}}</td>
+      <td>{{mth.winners}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+
+
+
+

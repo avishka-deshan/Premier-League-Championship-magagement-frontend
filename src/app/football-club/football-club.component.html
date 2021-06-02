@@ -1,1 +1,68 @@
-<p>football-club works!</p>
+<html>
+<head>
+  <title>Premier League Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content = "width = device - width, initial-scale = 1">
+</head>
+<body>
+<div class="navtop">
+  <button (click)="pointsSort(); glsClicked=false; winsClicked=false; ptsClicked=true" [disabled]="ptsClicked">Premier League table by points</button>
+  <button  (click)="goalsSort(); ptsClicked=false; winsClicked=false; glsClicked=true" [disabled]="glsClicked">Premier League table by goals</button>
+  <button (click)="winsSort(); ptsClicked=false; glsClicked=false; winsClicked=true" [disabled]="winsClicked">Premier League table by wins</button>
+  <button (click)="randomMatch()">Play a random match</button>
+  <button routerLink="/matchData">Show played matches</button>
+  <button type=submit (click)="this.isButtonVisible = true; clicked = true"  [disabled]="clicked">Search For Match</button>
+  <label class="search">
+    <mat-form-field class="dateInputTextBox" *ngIf="this.isButtonVisible">
+      <input matInput [(ngModel)]="model.date" >
+      <mat-placeholder class="placeholder"></mat-placeholder>
+    </mat-form-field>
+    <button type="submit" (click)="sendDateValue()" name="button" *ngIf="this.isButtonVisible"  class="searchDate">Search Date</button>
+  </label>
+
+</div>
+<div class="mthText">
+  <p>Random Match Data:</p>
+  <p *ngFor="let mtc of mthData">Match played on {{mtc.matchDate}} between {{mtc.tm1Name}} and {{mtc.tm2name}}. {{mtc.tm1Name}}
+    scored {{mtc.tm1goals}} goals and  {{mtc.tm2name}} scored {{mtc.tm2goals}} goals. The match was won by {{mtc.winners}}</p>
+</div>
+<div class="mthText">
+  <p>Match Search Results:</p>
+  <p *ngFor="let mtc of searchDate"> Match played on {{mtc.matchDate}} between {{mtc.tm1Name}} and {{mtc.tm2name}}. {{mtc.tm1Name}}
+    scored {{mtc.tm1goals}} goals and  {{mtc.tm2name}} scored {{mtc.tm2goals}} goals. The match was won by {{mtc.winners}}</p>
+  <p *ngFor="let nodata of noSearch">{{nodata}}</p>
+</div>
+<div class="topic"><h1>Premier League Table - Football</h1></div>
+<div class="container">
+  <table id="PLeague">
+    <thead>
+    <tr>
+      <th scope="col">Club Name</th>
+      <th scope="col">MP</th>
+      <th scope="col">W</th>
+      <th scope="col">L</th>
+      <th scope="col">D</th>
+      <th scope="col">GS</th>
+      <th scope="col">GA</th>
+      <th scope="col">GD</th>
+      <th scope="col">Pts</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fbClub of fbClubs ">
+      <td>{{fbClub.nameOfClub}}</td>
+      <td>{{fbClub.noOfMatchesPlayed}}</td>
+      <td>{{fbClub.noOfWins}}</td>
+      <td>{{fbClub.noOfDefeats}}</td>
+      <td>{{fbClub.noOfDraws}}</td>
+      <td>{{fbClub.noOfGoalsScored}}</td>
+      <td>{{fbClub.goalsAgainst}}</td>
+      <td>{{fbClub.goalDifference}}</td>
+      <td>{{fbClub.noOfClubPoints}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+html{
+  background:url("match-background.jpg") no-repeat;
+  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body h1{
+  color: #dddddd;
+}
+
+#MatchData {
+  font-family: sans-serif;
+  font-size: 16px;
+  border-collapse: collapse;
+  width: 60%;
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20%;
+}
+
+#MatchData td, #MatchData th {
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+
+#MatchData tr{
+  background-image: linear-gradient( black, black, darkgreen);
+  color: #dddddd;
+}
+
+#MatchData tr:hover {
+  background-image: linear-gradient( black, black, black,midnightblue);
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+
+#MatchData th {
+  padding-top: 15px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-image: linear-gradient( black,saddlebrown);
+  color: white;
+}
+
+.container{
+  margin-top: 10%;
+}
